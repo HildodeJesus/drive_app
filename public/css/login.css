@@ -1,0 +1,22 @@
+.container {
+  background-image: url("/img/back-login.jpg");
+  height: 100%;
+  width: 100%;
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.wrapper-label {
+  margin-top: 20px;
+  width: 350px;
+  background-color: whitesmoke;
+  border-radius: 15px;
+  box-shadow: 9px 9px 18px black;
+  padding: 30px 20px;
+}
+

@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ES2019",                              
+    "module": "commonjs",                               
+    "rootDir": "./src",                                 
+    "allowJs": true,   
+    "outDir": "./dirt",  
+    "esModuleInterop": true,                         
+    "skipLibCheck": true, 
+    "typeRoots": [
+      "./src/types",
+      "./node_modules/@types"
+    ]                           
+  }
+}
