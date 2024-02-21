@@ -48,7 +48,11 @@ ambiente no seu .env
 
 `DATABASE_NAME`
 
+## S3 setup
+
 ## Referência
 
 - [Documentação AWS](https://docs.aws.amazon.com/index.html)
 - [Trabalhar com URLs pré-assinados](https://docs.aws.amazon.com/pt_br/AmazonS3/latest/userguide/using-presigned-url.html)
+- [Direct to S3 file uploads in Node.js](https://devcenter.heroku.com/articles/s3-upload-node)
+- [Upload de arquivos para o AmazonS3 diretamente do browser](https://medium.com/@lricoy/upload-de-arquivos-para-o-amazons3-diretamente-do-browser-881d399c3b25)

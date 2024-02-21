@@ -3,12 +3,48 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/css/global.css" />
+  <link rel="stylesheet" href="/css/message.css" />
+  <link rel="stylesheet" href="/css/header.css" />
+  <link rel="stylesheet" href="/css/home.css" />
   <title>Home</title>
 </head>
 <body>
+  <%- include("partial/header.ejs") %>
 
-  <h1>Home</h1>
-  <a href="/server/logout">logout</a>
-  
+  <main class="container">
+
+    <div id="container-upload">
+      <form id="upload-form" name="form">
+        <label for="fileInput" id="labelFile">Enviar arquivo</label>
+        <input type="file"  id="fileInput" name="fileInput" required>
+      </form>
+    </div>
+
+    <ul id="content">
+      <% if(files && files.length > 0) { %>
+        <% files.map(file => { %>
+          <li>
+            <a href="<%= file.s3Url %>"><%= file.name%></a>
+          </li>
+        <% }) %>
+      <% } %>
+    </ul>
+
+    <div id="upload-progress--container">
+      <div id="header-upload">
+        <h3>Carregamento concluído</h3>
+      </div>
+      <ul id="sent-files--status">
+        <li class="file-sending">
+          <span class="filename">foto.jpg</span>
+          <span class="current-status">concluído</span>
+        </li>
+      </ul>
+    </div>
+
+  <script type="module" src="/js/bundle.js" ></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+  </main>
 </body>
 </html>

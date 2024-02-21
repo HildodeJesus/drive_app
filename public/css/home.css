@@ -1,0 +1,74 @@
+.container {
+  width: 100%;
+  height: calc(100% - 70px);
+}
+
+input[type='file'] {
+  display: none;
+}
+
+#labelFile {
+  background-color: aqua;
+  margin: 10px 20px;
+  padding: 10px 15px;
+  border-radius: 10px;
+  border: 1px solid rgb(82, 82, 82);
+  cursor: pointer;
+  display: inline-block;
+}
+
+#upload-progress--container {
+  position: absolute;
+  bottom: 5px;
+  right: 5px;
+  height: 150px;
+  width: 300px;
+  border: 1px solid rgb(82, 82, 82);
+  border-radius: 10px;
+  align-items: center;
+  flex-direction: column;
+  display: none;
+}
+
+#upload-progress--container #header-upload {
+  width: 100%;
+  padding: 10px 20px;
+  border-bottom: 1px solid rgb(82, 82, 82);
+  
+}
+
+#upload-progress--container #sent-files--status {
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: center; 
+}
+
+#upload-progress--container #sent-files--status .file-sending  {
+  width: 100%;
+  padding: 5px 10px;
+  display: flex;
+  gap: 5px;
+}
+
+#upload-progress--container #sent-files--status .file-sending .filename{
+  width: 65%;
+  overflow: hidden;
+  font-size: 1rem;
+  color: rgb(48, 48, 48);
+}
+
+#upload-progress--container #sent-files--status .file-sending .current-status {
+  font-size: 1rem;
+  font-weight: bold;
+  color: rgb(0, 0, 0);
+  float: right;
+}
+
+#content {
+  width: 100%;
+  padding: 20px 20px;
+}

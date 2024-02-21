@@ -1,15 +1,23 @@
 {
   "compilerOptions": {
-    "target": "ES2019",                              
-    "module": "commonjs",                               
-    "rootDir": "./src",                                 
+    "target": "ES2021",                              
+    "module": "CommonJS",                               
+    "rootDir": "./src",  
+    "strict": false,                          
     "allowJs": true,   
-    "outDir": "./dirt",  
-    "esModuleInterop": true,                         
-    "skipLibCheck": true, 
+    "outDir": "./dist",                           
+    "moduleResolution": "node",
+    "esModuleInterop": true ,
+    "resolveJsonModule": true,
+    "skipLibCheck": true,
     "typeRoots": [
       "./src/types",
       "./node_modules/@types"
     ]                           
-  }
+  },
+  "exclude": [
+    "./public",
+    "./knexfile.ts"
+  ],
+  "include": ["**/*.ts",]
 }
