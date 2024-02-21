@@ -72,3 +72,18 @@ input[type='file'] {
   width: 100%;
   padding: 20px 20px;
 }
+
+#content li {
+  display: flex;
+  gap: 30px;
+  padding: 10px 0;
+  border-bottom: 1px solid rgb(83, 83, 83);
+}
+
+#content li a{
+ 
+}
+
+#content li #filename-content {
+  width: 150px;
+}

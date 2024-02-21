@@ -8,8 +8,9 @@ export default class Upload {
 
 	getSignedRequest() {
 		const treatedFileName = encodeURIComponent(this.file.name);
+		const treatedFileType = encodeURIComponent(this.file.type);
 		return axios
-			.get(`/sign-s3?file_name=${treatedFileName}`)
+			.get(`/sign-s3?file_name=${treatedFileName}&file_type=${treatedFileType}`)
 			.then(response => {
 				return response.data;
 			})
@@ -25,7 +26,9 @@ export default class Upload {
 			const formData = new FormData();
 			formData.append("file", this.file);
 			axios
-				.put(data.signedUrl, formData)
+				.put(data.signedUrl, formData, {
+					headers: { "Content-Type": this.file.type },
+				})
 				.then(response => {
 					new HomeView().updateSentFileStatus(this.file.name, "Concluído");
 				})
