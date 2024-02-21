@@ -56,9 +56,29 @@ ambiente no seu .env
 
 ## S3 setup
 
+É necessário editar algumas permissões no bucket do S3. Primeiramente, bloqueie
+o acesso publico ao bucket. Isso é importante para termos maior controle do que
+entra e sai do nosso bucket e termos mais segurança.
+![Screenshot of s3 permission](https://drive.google.com/file/d/1IH1Yd4009QhzARptKpERNjCR1pIlYo5l/view)
+
+Agora, você precisará configurar as configurações de CORS , que permitirá a
+nossa aplicação acessar o conteúdo do Bucket do S3.
+
+```json
+[
+	{
+		"AllowedHeaders": ["*"],
+		"AllowedMethods": ["GET", "HEAD", "POST", "PUT"],
+		"AllowedOrigins": ["*"],
+		"ExposeHeaders": []
+	}
+]
+```
+
+![Screenshot of s3 permission](https://drive.google.com/file/d/1iChH52SwKQkPhAIfPh_6ohevXHdxZ6Q7/view)
+
 ## Referência
 
-- [Documentação AWS](https://docs.aws.amazon.com/index.html)
-- [Trabalhar com URLs pré-assinados](https://docs.aws.amazon.com/pt_br/AmazonS3/latest/userguide/using-presigned-url.html)
+- [Create a presigned URL for Amazon S3 using an AWS SDK](https://docs.aws.amazon.com/AmazonS3/latest/userguide/example_s3_Scenario_PresignedUrl_section.html)
 - [Direct to S3 file uploads in Node.js](https://devcenter.heroku.com/articles/s3-upload-node)
 - [Upload de arquivos para o AmazonS3 diretamente do browser](https://medium.com/@lricoy/upload-de-arquivos-para-o-amazons3-diretamente-do-browser-881d399c3b25)
