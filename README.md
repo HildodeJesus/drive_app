@@ -48,6 +48,12 @@ ambiente no seu .env
 
 `DATABASE_NAME`
 
+`AWS_ACCESS_KEY_ID`
+
+`AWS_SECRET_ACCESS_KEY`
+
+`S3_BUCKET`
+
 ## S3 setup
 
 ## Referência
