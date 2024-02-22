@@ -10,6 +10,7 @@ import homeRoutes from './routes/homeRoutes'
 import loginRoutes from './routes/loginRoutes'
 import registerRoutes from './routes/registerRoutes'
 import fileRoutes from './routes/fileRoutes'
+
 import globalVariables from "./middlewares/global";
 import handleError from "./middlewares/handleError";
 import notFound from "./middlewares/notFound";

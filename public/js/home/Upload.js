@@ -23,10 +23,8 @@ export default class Upload {
 	uploadFile() {
 		new HomeView().updateSentFileStatus(this.file.name, "Aguarde...");
 		this.getSignedRequest().then(data => {
-			const formData = new FormData();
-			formData.append("file", this.file);
 			axios
-				.put(data.signedUrl, formData, {
+				.put(data.signedUrl, this.file, {
 					headers: { "Content-Type": this.file.type },
 				})
 				.then(response => {

@@ -1,11 +1,8 @@
 // Generated using webpack-cli https://github.com/webpack/webpack-cli
 
 const path = require("path");
-const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 const isProduction = process.env.NODE_ENV == "production";
-
-const stylesHandler = MiniCssExtractPlugin.loader;
 
 const config = {
 	entry: path.resolve(__dirname, "public", "js", "index.js"),
@@ -13,7 +10,6 @@ const config = {
 		path: path.resolve(__dirname, "public", "js"),
 		filename: "bundle.js",
 	},
-	plugins: [new MiniCssExtractPlugin()],
 	module: {
 		rules: [
 			{
@@ -25,10 +21,6 @@ const config = {
 						presets: ["@babel/preset-env"],
 					},
 				},
-			},
-			{
-				test: /\.css$/i,
-				use: [stylesHandler, "css-loader"],
 			},
 		],
 	},

@@ -1,11 +1,8 @@
 import { NextFunction, Request, Response } from "express";
-import { PutObjectCommand, S3Client } from "@aws-sdk/client-s3";
-import {
-  getSignedUrl,
-} from "@aws-sdk/s3-request-presigner";
 
 import { File } from "../entities/File";
 import { FileRepo } from "../repositories/FileRepo";
+import S3 from "../services/S3";
 
 export class FileController {
   async getSignedS3Url(req: Request, res: Response, next: NextFunction) {
@@ -14,13 +11,10 @@ export class FileController {
       const fileName = req.query['file_name'] as string
       const fileType = req.query["file_type"] as string
       const region = "us-east-1"
-      const bucket = process.env.S3_BUCKET
-      const key = folderName + '/' + fileName
+      const Bucket = process.env.S3_BUCKET
+      const Key = folderName + '/' + fileName
 
-      const client = new S3Client({region})
-      const command = new PutObjectCommand({Bucket: bucket, Key: key, ContentType: fileType})
-      const signedUrl = await getSignedUrl(client, command, {expiresIn: 60})
- 
+      const signedUrl = await new S3({region}).getSignedUrlUpload({Bucket, Key, ContentType: fileType}, 60)
 
       const newFile = new File({
         fileName, 
